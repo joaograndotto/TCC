@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste API</title>
+</head>
+</style>
+
+<body>
+
+    <h1>Upload do CSV</h1>
+    <form method="POST" action="http://127.0.0.1:5000/uploadcsv" enctype="multipart/form-data">
+        <input type="file" name="file">
+        <input type="submit" value="Submit">
+    </form>
+
+    <h1>Verificar a afiliação</h1>
+    <form method="POST" action="http://127.0.0.1:5000/form_example">
+        <div><label>Digite a afiliação:</label></div>
+        <input type="text" name="affiliation">
+        <input type="submit" value="submit">
+    </form>
+</body>
+
+</html>
