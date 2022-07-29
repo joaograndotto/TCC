@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for ('static', filename='css/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ url_for ('static', filename='css/style.css') }}"> 
+    <title>Teste API</title>
+</head>
+</style>
+
+<body>
+<div class="container justify-content-center shadow p-3 mb-5 bg-body rounded " style="margin-top: 8.6%;">
+
+    <div class="justify-content-center">
+        <h1 class="text-center mb-4">Faça o upload do CSV</h1>
+        <div class="mb-3"></div>
+        <form class="form-group" method="POST" action="/request_csv" enctype="multipart/form-data">
+            <input class="form-control mb-4" type="file" name="file">
+            <input class="btn btn-primary" type="submit" value="Enviar">
+        </form>
+    </div>
+
+
+    <div class="justify-content-center">
+        <h1 class="text-center mb-4">Verificar a afiliação</h1>
+        <form class="form-group" method="POST" action="/request_input">
+            <div><label>Digite a afiliação:</label></div>
+            <input class="form-control mb-3" type="text" name="affiliation">
+            <input class="btn btn-primary justify-content-center" type="submit" value="Enviar">
+        </form>
+    </div>
+
+</div>
+</body>
+
+</html>
