@@ -15,7 +15,7 @@ def hello():
     return render_template('index.html')
 
 #carregar modelo
-def classify_utterance(utt):
+def classificador(utt):
     # load the model
     loaded_model = pickle.load(open('models\ifgIASigmond.model', 'rb'))
     # make a prediction
@@ -41,7 +41,7 @@ def uploadFiles():
     if (len(dataset.columns) > 2):
         raise Exception("O arquivo CSV contém mais do que uma coluna!")
     else:
-        predict = classify_utterance(dataset.squeeze())
+        predict = classificador(dataset.squeeze())
         
         dataset["afiliacao_classificada"] = predict
         dataset['afiliacao_classificada'] = dataset['afiliacao_classificada'].apply(lambda x: "Instituto Federal de Goiás" if x == 1 else 'Não é Instituto Federal de Goiás')
@@ -55,7 +55,7 @@ def uploadFiles():
 def request_input():
     affiliation = request.form.get('affiliation')
     affiliation = [affiliation]
-    result = classify_utterance(affiliation)
+    result = classificador(affiliation)
     resposta = ['Não é Instituto Federal de Goiás','É Instituto Federal de Goiás']
     return '''
                   <h1>A afiliação: {}</h1>'''.format(resposta[result[0]])
