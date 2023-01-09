@@ -15,11 +15,11 @@ def hello():
     return render_template('index.html')
 
 #carregar modelo
-def classificador(utt):
+def classificador(text):
     # load the model
     loaded_model = pickle.load(open('models\ifgIASigmond.model', 'rb'))
     # make a prediction
-    resultado = loaded_model.predict(utt)
+    resultado = loaded_model.predict(text)
     return resultado
 
 UPLOAD_FOLDER = 'static/'
